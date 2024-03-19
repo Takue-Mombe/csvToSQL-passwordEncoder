@@ -31,7 +31,7 @@
             margin-bottom: 10px;
             display: block;
         }
-        input[type="text"] {
+        input[type="text"], select {
             width: 100%;
             padding: 8px;
             margin-bottom: 15px;
@@ -79,15 +79,23 @@
                 </button>
             </div>
             <div class="modal-body">
-                <form action="#" method="post">
+
+                <form action="http://localhost:8080/api/register" method="post">
                     <label for="assessment_type">Assessment Type:</label>
-                    <input type="text" id="assessment_type" name="assessment_type" required>
+                    <select id="assessment_type" name="assessmentType" required>
+                        <option value="Test">Theory Test</option>
+                        <option value="Practical Test">Practical Test</option>
+                        <option value="Test Assignment">Test Assignment</option>
+                        <option value="Practical Assignment">Practical Assignment</option>
+                        <option value="Quiz">Quiz</option>
+                        <option value="Presentations">Presentations</option>
+                    </select>
 
                     <label for="course_weight">Course Weight:</label>
-                    <input type="text" id="course_weight" name="course_weight" required>
+                    <input type="text" id="course_weight" name="courseWeight" required>
 
                     <label for="current_total">Current Total:</label>
-                    <input type="text" id="current_total" name="current_total" required>
+                    <input type="text" id="current_total" name="currentTotal" required>
 
                     <label for="total">Total:</label>
                     <input type="text" id="total" name="total" required>
