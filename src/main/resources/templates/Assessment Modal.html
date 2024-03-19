@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <!-- CSS link for Bootstrap -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- JavaScript links for Bootstrap (jQuery is required for Bootstrap JavaScript components) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <style>
+        /* Basic styling for the form */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        form {
+            max-width: 400px;
+            margin: 20px auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+        }
+        label {
+            font-weight: bold;
+            margin-bottom: 10px;
+            display: block;
+        }
+        input[type="text"] {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+        input[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+<section>
+    <div class="container">
+        <div class="text-center">
+            <h2>Add Assessment</h2>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-md-8 text-center">
+
+                <button class="btn btn-primary" data-toggle="modal" data-target="#reg-modal">
+                    Add Assessment
+                </button>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="modal fade" id="reg-modal" tabindex="-1" aria-labelledby="modal-title" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="modal-title">Add Assessment</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form action="#" method="post">
+                    <label for="assessment_type">Assessment Type:</label>
+                    <input type="text" id="assessment_type" name="assessment_type" required>
+
+                    <label for="course_weight">Course Weight:</label>
+                    <input type="text" id="course_weight" name="course_weight" required>
+
+                    <label for="current_total">Current Total:</label>
+                    <input type="text" id="current_total" name="current_total" required>
+
+                    <label for="total">Total:</label>
+                    <input type="text" id="total" name="total" required>
+
+                    <input type="submit" value="Submit">
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
