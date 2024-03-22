@@ -43,7 +43,7 @@ public class userService {
                 String programme = nextRecord[6];
                 String department = nextRecord[7];
                 String dateString = nextRecord[8];
-                Long phoneNumber = Long.parseLong(nextRecord[9]);
+                String phoneNumber = nextRecord[9];
                 String email = nextRecord[10];
                 String nextOfKin = nextRecord[11];
                 String guardianNumber = nextRecord[12];
@@ -59,7 +59,7 @@ public class userService {
                 user.setLastName(lastName);
                 user.setProgramme(programme);
                 user.setDepartment(department);
-                user.setDateOfBirth(Date.valueOf(dateString));
+                user.setDateOfBirth(dateString);
                 user.setPhoneNumber(phoneNumber);
                 user.setEmail(email);
                 user.setNextOfKin(nextOfKin);

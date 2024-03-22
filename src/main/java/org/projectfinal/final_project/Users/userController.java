@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
+import java.util.List;
 
 
 @RestController
@@ -19,9 +20,9 @@ public class userController {
     public userController(org.projectfinal.final_project.Users.userService userService) {
         this.userService = userService;
     }
-    @GetMapping("/")
-    public  String hello(){
-        return "Hello user";
+    @GetMapping("/users")
+    public List<userModel> getUsers(){
+        return userService.getAllEUsers();
     }
 
     @PostMapping("/upload")

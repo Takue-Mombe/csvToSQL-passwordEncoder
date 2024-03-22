@@ -9,7 +9,7 @@ import lombok.NoArgsConstructor;
 
 import java.sql.Date;
 
-@Entity(name = "users")
+@Entity(name = "usermodel")
 @AllArgsConstructor
 @NoArgsConstructor
 public class userModel {
@@ -31,9 +31,9 @@ public class userModel {
     @Column
     private String department;
     @Column
-    private Date dateOfBirth;
+    private String dateOfBirth;
     @Column
-    private Long phoneNumber;
+    private String phoneNumber;
     @Column
     private String email;
     @Column
@@ -108,19 +108,19 @@ public class userModel {
         this.department = department;
     }
 
-    public Date getDateOfBirth() {
+    public String getDateOfBirth() {
         return dateOfBirth;
     }
 
-    public void setDateOfBirth(Date dateOfBirth) {
+    public void setDateOfBirth(String dateOfBirth) {
         this.dateOfBirth = dateOfBirth;
     }
 
-    public Long getPhoneNumber() {
+    public String getPhoneNumber() {
         return phoneNumber;
     }
 
-    public void setPhoneNumber(Long phoneNumber) {
+    public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
     }
 
