@@ -2,6 +2,7 @@ package org.projectfinal.final_project.Users;
 
 import com.opencsv.CSVReader;
 import com.opencsv.exceptions.CsvValidationException;
+import org.jetbrains.annotations.NotNull;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -80,6 +81,10 @@ public class userService {
         return userRepo.findAll();
     }
 
+    public userModel registerUser(@NotNull userModel user) {
+        user.setPassword(passwordEncoder.encode(user.getPassword()));
+        return userRepo.save(user);
+    }
     public Optional<userModel> getUserId(userModel userModel) {
         return userRepo.findById(userModel.getHitmail());
     }

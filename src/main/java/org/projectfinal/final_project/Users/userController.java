@@ -25,6 +25,12 @@ public class userController {
         return userService.getAllEUsers();
     }
 
+    @PostMapping("/register")
+    public userModel registerUser(@RequestBody userModel user) {
+        userModel registeredUser = userService.registerUser(user);
+        System.out.println("User registered successfully with username: " + registeredUser.getHitmail());
+        return registeredUser;
+    }
     @GetMapping("/login")
     public String loginUser() {
         return "Login successful!";
