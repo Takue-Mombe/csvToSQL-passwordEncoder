@@ -8,5 +8,5 @@ import java.util.Optional;
 
 @Repository
 public interface userRepo extends JpaRepository<userModel,String> {
-    Optional<userModel> findBy(String hitmail);
+
 }

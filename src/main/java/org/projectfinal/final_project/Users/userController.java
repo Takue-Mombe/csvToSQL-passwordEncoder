@@ -3,15 +3,14 @@ package org.projectfinal.final_project.Users;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
 
 
 @RestController
+@RequestMapping("/api")
 public class userController {
 
     @Autowired
@@ -20,10 +19,15 @@ public class userController {
     public userController(org.projectfinal.final_project.Users.userService userService) {
         this.userService = userService;
     }
+    @GetMapping("/")
+    public  String hello(){
+        return "Hello user";
+    }
 
-    @PostMapping("/upload-csv")
+    @PostMapping("/upload")
     public ResponseEntity<String> uploadCsv(@RequestParam("file") MultipartFile file) {
         try {
+            System.out.println("hello");
             userService.saveDataFromCsv(file);
             return ResponseEntity.ok("CSV file uploaded and data saved successfully.");
         } catch (IOException e) {

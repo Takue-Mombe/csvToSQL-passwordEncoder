@@ -19,11 +19,11 @@ public class userModel {
     @Column
     private String password;
     @Column
-    private int yearEnrolled;
+    private String yearEnrolled;
     @Column
     private String firstName;
     @Column
-    private Status Status;
+    private String Status;
     @Column
     private String lastName;
     @Column
@@ -59,11 +59,11 @@ public class userModel {
         this.password = password;
     }
 
-    public int getYearEnrolled() {
+    public String getYearEnrolled() {
         return yearEnrolled;
     }
 
-    public void setYearEnrolled(int yearEnrolled) {
+    public void setYearEnrolled(String yearEnrolled) {
         this.yearEnrolled = yearEnrolled;
     }
 
@@ -75,11 +75,12 @@ public class userModel {
         this.firstName = firstName;
     }
 
-    public org.projectfinal.final_project.Users.Status getStatus() {
+
+    public String getStatus() {
         return Status;
     }
 
-    public void setStatus(org.projectfinal.final_project.Users.Status status) {
+    public void setStatus(String status) {
         Status = status;
     }
 

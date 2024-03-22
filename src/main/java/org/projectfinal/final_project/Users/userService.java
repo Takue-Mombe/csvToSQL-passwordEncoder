@@ -5,7 +5,7 @@ import com.opencsv.exceptions.CsvValidationException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import org.springframework.security.crypto.password.PasswordEncoder;
+//import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
@@ -16,11 +16,11 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
+
 public class userService {
 
     @Autowired(required = true)
     private final userRepo userRepo;
-    private PasswordEncoder passwordEncoder;
 
     public userService(org.projectfinal.final_project.Users.userRepo userRepo) {
         this.userRepo = userRepo;
@@ -36,9 +36,9 @@ public class userService {
                 // Assuming that the first column contains the username and the second column contains the email
                 String hitmail = nextRecord[0];
                 String password = nextRecord[1];
-                int yearEnrolled = Integer.parseInt(nextRecord[2]); // Assuming nextRecord[2] is the yearEnrolled field
+                String yearEnrolled = nextRecord[2]; // Assuming nextRecord[2] is the yearEnrolled field
                 String firstName = nextRecord[3];
-                Status status = Status.valueOf(nextRecord[4]); // Assuming nextRecord[4] is the Status field
+                String status = nextRecord[4]; // Assuming nextRecord[4] is the Status field
                 String lastName = nextRecord[5];
                 String programme = nextRecord[6];
                 String department = nextRecord[7];
@@ -52,7 +52,7 @@ public class userService {
                 // Create a Usermodel entity and set the data
                 userModel user = new userModel();
                 user.setHitmail(hitmail);
-                user.setPassword(passwordEncoder.encode(user.getPassword()));
+               // user.setPassword(passwordEncoder.encode(user.getPassword()));
                 user.setYearEnrolled(yearEnrolled);
                 user.setFirstName(firstName);
                 user.setStatus(status);
@@ -72,10 +72,7 @@ public class userService {
         }
     }
 
-    public userModel saveUserModel(userModel UserModel){
 
-        return userRepo.save(UserModel);
-    }
     public List<userModel> getAllEUsers() {
         return userRepo.findAll();
     }
