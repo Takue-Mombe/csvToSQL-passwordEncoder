@@ -81,10 +81,7 @@ public class userService {
         return userRepo.findAll();
     }
 
-    public userModel registerUser(@NotNull userModel user) {
-        user.setPassword(passwordEncoder.encode(user.getPassword()));
-        return userRepo.save(user);
-    }
+
     public Optional<userModel> getUserId(userModel userModel) {
         return userRepo.findById(userModel.getHitmail());
     }
