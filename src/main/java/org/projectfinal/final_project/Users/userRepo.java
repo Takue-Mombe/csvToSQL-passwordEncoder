@@ -9,6 +9,5 @@ import java.util.Optional;
 @Repository
 public interface userRepo extends JpaRepository<userModel,String> {
 
-    default String generatePassword(String firstName,String
-    )
+    default String generatePassword(String firstName,String hitmal)
 }
