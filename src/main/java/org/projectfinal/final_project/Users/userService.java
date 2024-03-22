@@ -5,7 +5,7 @@ import com.opencsv.exceptions.CsvValidationException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-//import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
@@ -21,6 +21,8 @@ public class userService {
 
     @Autowired(required = true)
     private final userRepo userRepo;
+    @Autowired
+    private final PasswordEncoder passwordEncoder;
 
     public userService(org.projectfinal.final_project.Users.userRepo userRepo) {
         this.userRepo = userRepo;
@@ -52,7 +54,8 @@ public class userService {
                 // Create a Usermodel entity and set the data
                 userModel user = new userModel();
                 user.setHitmail(hitmail);
-               // user.setPassword(passwordEncoder.encode(user.getPassword()));
+                String Genpassword=userRepo.generatePassword(firstName,firstName);
+                user.setPassword(password);
                 user.setYearEnrolled(yearEnrolled);
                 user.setFirstName(firstName);
                 user.setStatus(status);
