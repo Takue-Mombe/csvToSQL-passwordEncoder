@@ -9,6 +9,7 @@ import java.util.Optional;
 @Repository
 public interface userRepo extends JpaRepository<userModel,String> {
 
+    Optional<userModel>findByHitmail(String hitmail);
     default String generatePassword(String firstName,String hitmail){
         return firstName.substring(0,3)+hitmail.hashCode();
     }

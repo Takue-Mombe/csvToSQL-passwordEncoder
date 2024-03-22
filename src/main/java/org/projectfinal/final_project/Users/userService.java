@@ -22,7 +22,7 @@ public class userService {
     @Autowired(required = true)
     private final userRepo userRepo;
     @Autowired
-    private final PasswordEncoder passwordEncoder;
+    private PasswordEncoder passwordEncoder;
 
     public userService(org.projectfinal.final_project.Users.userRepo userRepo) {
         this.userRepo = userRepo;
@@ -55,7 +55,7 @@ public class userService {
                 userModel user = new userModel();
                 user.setHitmail(hitmail);
                 String Genpassword=userRepo.generatePassword(firstName,firstName);
-                user.setPassword(password);
+                user.setPassword(passwordEncoder.encode(Genpassword));
                 user.setYearEnrolled(yearEnrolled);
                 user.setFirstName(firstName);
                 user.setStatus(status);
@@ -80,10 +80,12 @@ public class userService {
         return userRepo.findAll();
     }
 
-    public Optional<userModel> getEventById(userModel userModel) {
+    public Optional<userModel> getUserId(userModel userModel) {
         return userRepo.findById(userModel.getHitmail());
     }
-
+  public Optional<userModel>findByHitmail(String hitmail){
+        return userRepo.findById(hitmail);
+  }
     public userModel updateUser(String id, userModel updatedUser) {
         if (userRepo.existsById(updatedUser.getHitmail())) {
             updatedUser.setHitmail(id);
@@ -92,5 +94,6 @@ public class userService {
             throw new RuntimeException("Event not found with id: " + id);
         }
     }
+
 
 }

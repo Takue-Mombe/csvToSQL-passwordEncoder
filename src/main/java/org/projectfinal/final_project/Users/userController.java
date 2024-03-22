@@ -25,6 +25,10 @@ public class userController {
         return userService.getAllEUsers();
     }
 
+    @GetMapping("/login")
+    public String loginUser() {
+        return "Login successful!";
+    }
     @PostMapping("/upload")
     public ResponseEntity<String> uploadCsv(@RequestParam("file") MultipartFile file) {
         try {
